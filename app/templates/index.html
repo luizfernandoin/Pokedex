@@ -24,8 +24,23 @@
     {% block footer %}
     <footer>
         <div class="container-footer">
-            <div class="info"></div>
-            <div class="pages"></div>
+            <div class="info">
+                <img src="{{ url_for('static', filename='img/#') }}" alt="logo">
+                <div class="text-info">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, optio perspiciati!</p>
+                </div>
+            </div>
+            <div class="pages">
+                <title>Pages</title>
+                <div class="footer-itens">
+                    <ul>
+                        <li><a href="{{ url_for('detail') }}">Details</a></li>
+                        <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+                        <li><a href="{{ url_for('signout') }}">SignOut</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="complements"></div>
             <div class="authors"></div>
         </div>
