@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
+    {% block tilte %}
+    <title>Home</title>
+    {% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">    
 </head>
 <body>
-    <h2>Index</h2>
-
+    {% block header %}
     <ul>
         <li><a href="{{ url_for('home') }}">Home</a></li>
         <li><a href="{{ url_for('signin') }}">SignIn</a></li>
@@ -16,7 +17,11 @@
         <li><a href="{{ url_for('detail') }}">Details</a></li>
         <li><a href="{{ url_for('about') }}">About</a></li>
     </ul>
-    
+    {% endblock %}
+    {% block main %}
+
+    {% endblock %}
+    {% block footer %}
     <footer>
         <div class="container-footer">
             <div class="info"></div>
@@ -28,5 +33,6 @@
             <p>Copyright &copy; 2023 - PokéDex </p>
         </div>
     </footer>
+    {%  endblock %}
 </body>
 </html>
