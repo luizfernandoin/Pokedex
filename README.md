@@ -40,6 +40,6 @@ flask --app app run
 
 ##
 ### Autores
+[Luiz Fernando](https://luizfernandoin.github.io/)/
 [J. A. F. Arruda](https://jandersonarruda.github.io/)\
-[L. F. Perreira](https://luizfernandoin.github.io/)
 
