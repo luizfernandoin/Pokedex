@@ -41,13 +41,31 @@
                     </ul>
                 </div>
             </div>
-            <div class="complements"></div>
-            <div class="authors"></div>
+            <div class="complements">
+            </div>
+            <div class="authors">
+                <div id="author-jose" class="container-author">
+                    <img src="{{ url_for('static', filename='img/#') }}" alt="autor1">
+                    <div>
+                        <h4>José Anderson</h4>
+                        <p>Type development</p>
+                    </div>
+                </div>
+                <div id="author-luiz" class="container-author">
+                    <img src="{{ url_for('static', filename='img/#') }}" alt="autor2">
+                    <div>
+                        <h4>Luiz Fernando</h4>
+                        <p>Type development</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div>
             <p>Copyright &copy; 2023 - PokéDex </p>
         </div>
     </footer>
-    {%  endblock %}
+    {% endblock %}
+
+    <script src="{{ url_for('static', filename='js/author.js') }}"></script>
 </body>
 </html>
