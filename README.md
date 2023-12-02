@@ -1,6 +1,7 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/rps_RRg3)
 
 ## PokéDex
+O projeto Pokédex utiliza uma API especializada para oferecer informações detalhadas sobre os Pokémon. Essa plataforma digital proporciona aos treinadores uma experiência imersiva, apresentando dados como tipos, habilidades e curiosidades de cada criatura. A integração de imagens e sons característicos torna a exploração da Pokédex envolvente e educativa. Além disso, a capacidade de busc torna essa ferramenta valiosa para os entusiastas Pokémon.
 
 ##
 ### Executar em sua maquina
