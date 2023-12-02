@@ -26,7 +26,7 @@
     <footer>
         <div class="container-elements">
             <div class="info">
-                <img src="{{ url_for('static', filename='img/poke_pokemon_star-porple.svg') }}" alt="img-logo">
+                <img src="{{ url_for('static', filename='img/poke_pokemon_star.svg') }}" alt="img-logo">
                 <div class="text-info">
                     <p>O projeto Pokédex utiliza uma API especializada para oferecer informações sobre os Pokémon. Essa plataforma digital oferece dados como tipos, 
                         habilidades e curiosidades de cada criatura, tornando a experiência de exploração educativa e envolvente. 
@@ -39,6 +39,7 @@
                     {% block routes %}
                     <li><a href="{{ url_for('signin') }}">SignIn</a></li>
                     <li><a href="{{ url_for('signout') }}">SignOut</a></li>
+                    <li><a href="#">Favorite</a></li>
                     <li><a href="{{ url_for('about') }}">About</a></li>
                     {% endblock %}
                 </ul>
@@ -73,7 +74,7 @@
         </div>
         
         <div class="copyright">
-            <p>Copyright &copy; 2023 - PokéDex</p>
+            <p>Copyright &copy; 2023 <span></span> - <span>PokéDex</span></p>
         </div>
     </footer>
     {% endblock %}

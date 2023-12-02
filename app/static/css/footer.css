@@ -75,7 +75,7 @@ footer {
 .container-author img {
     width: 45px;
     border-radius: 50px;
-    border: .5px solid #840ec9;
+    border: .14rem solid #444444;
 }
 
 .container-author div {
@@ -98,4 +98,9 @@ footer {
     text-align: center;
     margin-top: 1.5rem;
     border-top: .3px solid #444444;
+}
+
+.copyright span {
+    color: #ff960b;
+    margin-left: .2rem;
 }
