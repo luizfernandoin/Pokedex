@@ -23,45 +23,53 @@
     {% endblock %}
     {% block footer %}
     <footer>
-        <div class="container-footer">
+        <div class="container-elements">
             <div class="info">
-                <img src="{{ url_for('static', filename='img/#') }}" alt="logo">
+                <img src="{{ url_for('static', filename='img/#') }}" alt="img-logo">
                 <div class="text-info">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, optio perspiciati!</p>
                 </div>
             </div>
+
             <div class="pages">
-                <title>Pages</title>
-                <div class="footer-itens">
-                    <ul>
-                        <li><a href="{{ url_for('detail') }}">Details</a></li>
-                        <li><a href="{{ url_for('signin') }}">SignIn</a></li>
-                        <li><a href="{{ url_for('signout') }}">SignOut</a></li>
-                        <li><a href="{{ url_for('about') }}">About</a></li>
-                    </ul>
-                </div>
+                <ul>
+                    <li><a href="{{ url_for('detail') }}">Details</a></li>
+                    <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+                    <li><a href="{{ url_for('signout') }}">SignOut</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
             </div>
+
             <div class="complements">
+                <ul>
+                    <li><a href="https://github.com/Gerencia-de-configuracao-e-mudancas/projeto-final-cleanbug" target="_blank">Repositório</a></li>
+                    <li><a href="https://flask.palletsprojects.com/en/3.0.x/" target="_blank">Framework</a></li>
+                    <li><a href="https://pokeapi.co/" target="_blank">API</a></li>
+                </ul>
             </div>
+
             <div class="authors">
                 <div id="author-jose" class="container-author">
-                    <img src="{{ url_for('static', filename='img/#') }}" alt="autor1">
+                    <img src="{{ url_for('static', filename='img/jose-autor.jpeg') }}" alt="autor1">
                     <div>
                         <h4>José Anderson</h4>
                         <p>Type development</p>
                     </div>
                 </div>
+                
                 <div id="author-luiz" class="container-author">
-                    <img src="{{ url_for('static', filename='img/#') }}" alt="autor2">
+                    <img src="{{ url_for('static', filename='img/luiz-autor.jpeg') }}" alt="autor2">
                     <div>
                         <h4>Luiz Fernando</h4>
                         <p>Type development</p>
                     </div>
                 </div>
             </div>
+
         </div>
-        <div>
-            <p>Copyright &copy; 2023 - PokéDex </p>
+        
+        <div class="copyright">
+            <p>Copyright &copy; 2023 - PokéDex</p>
         </div>
     </footer>
     {% endblock %}
