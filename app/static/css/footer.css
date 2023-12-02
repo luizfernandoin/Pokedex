@@ -45,7 +45,7 @@ footer {
 }
 
 .info div p {
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 
@@ -96,7 +96,7 @@ footer {
 .copyright {
     width: 90%;
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 1.3rem;
     border-top: .3px solid #444444;
 }
 
