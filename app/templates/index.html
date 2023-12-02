@@ -33,10 +33,11 @@
 
             <div class="pages">
                 <ul>
-                    <li><a href="{{ url_for('detail') }}">Details</a></li>
+                    {% block routes %}
                     <li><a href="{{ url_for('signin') }}">SignIn</a></li>
                     <li><a href="{{ url_for('signout') }}">SignOut</a></li>
                     <li><a href="{{ url_for('about') }}">About</a></li>
+                    {% endblock %}
                 </ul>
             </div>
 

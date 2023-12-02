@@ -1,4 +1,10 @@
 {% extends "index.html" %}
 {% block tilte %}
-    <title>About</title>
+<title>About</title>
+{% endblock %}
+
+{% block routes %}
+<li><a href="{{ url_for('home') }}">Home</a></li>
+<li><a href="{{ url_for('signin') }}">SignIn</a></li>
+<li><a href="{{ url_for('signout') }}">SignOut</a></li>
 {% endblock %}
