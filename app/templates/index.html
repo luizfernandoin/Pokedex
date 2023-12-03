@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block tilte %}
+    <title>Home</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/pock_ball-red.svg') }}" type="image/x-icon"> 
+</head>
+<body>
+    {% block header %}
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+        <li><a href="{{ url_for('signout') }}">SignOut</a></li>
+        <li><a href="{{ url_for('detail') }}">Details</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+    </ul>
+    {% endblock %}
+    {% block main %}
+
+    {% endblock %}
+    {% block footer %}
+    <footer>
+        <div class="container-elements">
+            <div class="info">
+                <img src="{{ url_for('static', filename='img/poke_pokemon_star.svg') }}" alt="img-logo">
+                <div class="text-info">
+                    <p>O projeto Pokédex utiliza uma API especializada para oferecer informações sobre os Pokémon. Essa plataforma digital oferece dados como tipos, 
+                        habilidades, habitats e curiosidades de cada criatura, permitindo uma experiência de exploração educativa e envolvente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pages">
+                <ul>
+                    {% block routes %}
+                    <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+                    <li><a href="{{ url_for('signout') }}">SignOut</a></li>
+                    <li><a href="#">Favorite</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    {% endblock %}
+                </ul>
+            </div>
+
+            <div class="complements">
+                <ul>
+                    <li><a href="https://github.com/Gerencia-de-configuracao-e-mudancas/projeto-final-cleanbug" target="_blank">Repository</a></li>
+                    <li><a href="https://flask.palletsprojects.com/en/3.0.x/" target="_blank">Framework</a></li>
+                    <li><a href="https://pokeapi.co/" target="_blank">API</a></li>
+                </ul>
+            </div>
+
+            <div class="authors">
+                <div id="author-jose" class="container-author">
+                    <img src="{{ url_for('static', filename='img/jose-autor.jpeg') }}" alt="autor1">
+                    <div>
+                        <h4>José Anderson F. de Arruda</h4>
+                        <p>Desenvolvedor Front-end</p>
+                    </div>
+                </div>
+                
+                <div id="author-luiz" class="container-author">
+                    <img src="{{ url_for('static', filename='img/luiz-autor.jpeg') }}" alt="autor2">
+                    <div>
+                        <h4>Luiz Fernando</h4>
+                        <p>Desenvolvedor Full Stack</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="copyright">
+            <p>Copyright &copy; 2023 <span></span> - <span>PokéDex</span></p>
+        </div>
+    </footer>
+    {% endblock %}
+
+    <script src="{{ url_for('static', filename='js/author.js') }}"></script>
+</body>
+</html>
