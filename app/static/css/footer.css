@@ -33,7 +33,7 @@ footer {
     display: flex;
     flex-direction: row;
     align-items:flex-start;
-    max-width: 50vh;
+    max-width: 65vh;
 }
 .info img {
     width: 70px;
@@ -46,6 +46,8 @@ footer {
 
 .info div p {
     line-height: 1.5;
+    font-size: 13.8px;
+    text-align: justify;
 }
 
 
