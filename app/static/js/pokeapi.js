@@ -6,7 +6,7 @@ async function getAllPokemons() {
     const { results } = data;
 
     results.map(async (pokemon) => {
-        
+        const { name, abilities, types, species, height, weight, stats } = await getMoreInfo(pokemon.url);
     })
 }
 
