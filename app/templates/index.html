@@ -67,7 +67,10 @@
     </header>
 
     <main>
-        {% block conteudo %}  {% endblock %}
+        {% block conteudo %}
+        <h3>card</h3>
+        <a href="{{ url_for('detail') }}">card-teste</a>
+        {% endblock %}
     </main>
 
     <footer>
