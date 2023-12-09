@@ -3,6 +3,9 @@
 <title>Detail</title>
 {% endblock %}
 
+{% block style %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+{% endblock %}
 {% block conteudo %}
 <div class="container-detail">
     <div class="main-detail">
