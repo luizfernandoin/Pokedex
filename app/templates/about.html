@@ -3,9 +3,32 @@
 <title>About</title>
 {% endblock %}
 
-{% block routes %}
-<li><a href="{{ url_for('home') }}">Home</a></li>
-<li><a href="{{ url_for('signin') }}">SignIn</a></li>
-<li><a href="{{ url_for('signout') }}">SignOut</a></li>
-<li><a href="#">Favorite</a></li>
+{% block main %}
+<section class="container">
+    <main class="conteudo">
+        <div class="header-aboult">
+            <h1 class="titulo">Nós Somos <strong>PokéDex</strong></h1>
+            <p>O maior site de pokemons do mundo!</p>
+        </div>
+        <div class="conteudo-principal">
+            <img class="conteudo-principal-imagem" src="{{ url_for('static', filename='img/poke_pokemon_star.svg') }}" alt="img-logo">
+            <div class="conteudo-principal-escrito">
+                <p>"Desvende os segredos Pokémon com a Pokédex."</p>
+                <p>
+                    De cunho academico, o Pokédex utiliza uma API especializada para oferecer informações detalhadas sobre os Pokémon. Essa plataforma proporciona aos usuarios uma experiência imersiva, apresentando dados como tipos, habilidades e curiosidades de cada criatura. A integração de imagens e sons característicos torna a exploração da Pokédex envolvente e educativa.
+                </p>
+                <p>
+                    É a sua porta de entrada para descobrir os segredos, as habilidades e as peculiaridades de cada Pokémon conhecido. Navegue através de uma extensa base de dados, repleta de informações detalhadas sobre todas as espécies de Pokémon, desde os clássicos até as mais recentes descobertas. Explore as funcionalidades aprimoradas que oferecemos para tornar a sua jornada ainda mais envolvente. Ferramentas interativas permitem que você conheça as características únicas de cada Pokémon, desde suas habilidades até suas evoluções. Aprofunde-se em narrativas fascinantes sobre as origens e os habitats dessas criaturas incríveis.
+                </p>
+            </div>
+        </div>
+        <div class="footer-aboult header-aboult">
+            <h1 class="titulo">Conheça Nossos <strong>Desenvolvedores</strong></h1>
+        </div>
+    </main>
+</section>
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/about.js') }}"></script>
+{% endblock %}
 {% endblock %}
