@@ -19,28 +19,29 @@ async function getMoreInfo(url) {
     const {
         name,
         abilities,
-        types,
+        types, // Types é um array de objetos
         species,
         height,
         weight,
         stats,
     } = data;
 
+    // Extrai os nomes dos tipos
+    const typeNames = types.map(type => type.type.name);
+    console.log(typeNames)
+
     return {
-        name, abilities, types: getTypes(types), species, height, weight, stats
+        name, abilities, types: typeNames, species, height, weight, stats
     };
 }
 
-function getTypes(types) {
-    const typeNames = types.map(type => type.type.name);
-
-    return typeNames;
-}
 
 function createPokemonCard(pokemon) {
+    // Crie o elemento do card
     const card = document.createElement('div');
     card.classList.add('card');
 
+    // Crie o cabeçalho do card
     const cardHeader = document.createElement('div');
     cardHeader.classList.add('card-header');
 
@@ -50,6 +51,7 @@ function createPokemonCard(pokemon) {
     const typeClassElement = document.createElement('div');
     typeClassElement.classList.add('type-class');
 
+    // Adicione classes de tipo ao elemento
     pokemon.types.forEach((type, index) => {
         const typeSpan = document.createElement('span');
         typeSpan.id = `id${index + 1}`;
@@ -67,8 +69,7 @@ function createPokemonCard(pokemon) {
     cardBody.classList.add('card-body');
 
     const imgElement = document.createElement('img');
-    imgElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png`;
-
+    imgElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
     imgElement.alt = 'pokemon';
 
     // Adicione a imagem ao corpo do card
@@ -84,9 +85,21 @@ function createPokemonCard(pokemon) {
     linkElement.appendChild(card);
 
     // Adicione o card ao contêiner
-    const cardContainer = document.querySelector('.container-main');
+    const cardContainer = document.getElementById('pokemon-container');
     cardContainer.appendChild(linkElement);
 }
+
+
+// Adicione botões ou outras formas de controle para a paginação no HTML
+document.getElementById('next-button').addEventListener('click', () => {
+    // Ajuste os valores de limit e offset conforme necessário
+    getAllPokemons(10, 10);
+});
+
+document.getElementById('prev-button').addEventListener('click', () => {
+    // Ajuste os valores de limit e offset conforme necessário
+    getAllPokemons(10, 0);
+});
 
 // Carregue os primeiros Pokémon ao iniciar a página
 getAllPokemons();
