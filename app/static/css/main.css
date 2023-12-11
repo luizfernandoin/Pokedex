@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 0 13rem;
 }
 
 .container-cards a {
@@ -16,6 +17,7 @@
     border: .1rem solid #000;
     border-radius: 1rem;
     padding: 1rem;
+    background-color: #7d7676;
 }
 
 .card-header {
@@ -39,6 +41,7 @@
 
 #id1 {
     background-color: #00ff7b;
+    margin-right: .4rem;
 }
 
 #id2 {
@@ -50,4 +53,26 @@
 }
 .card-body img {
     width: 15rem;
+}
+
+
+.btn-mais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding: 0.8em 1.3em 0.8em 0.9em;
+    color: white;
+    background-color: #ff960b;
+    letter-spacing: 0.05em;
+    border-radius: 16px;
+    height: 7vh;
+    width: 50%;
+    outline: none;
+}
+  
+.btn-mais:hover {
+    cursor: pointer;
 }

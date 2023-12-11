@@ -1,4 +1,6 @@
 const pokeapi = 'https://pokeapi.co/api/v2/pokemon';
+var offset = 0;
+var tot_cards = 0;
 
 const iconsTypes = {
     water: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/water.svg',
@@ -73,7 +75,16 @@ function getTypes(types) {
     return typeNames;
 }
 
+function isPokemonOnPage(pokemonId) {
+    const existingPokemon = document.querySelector(`[data-pokemon-id="${pokemonId}"]`);
+    return !!existingPokemon;
+}
+
 function createPokemonCard(pokemon) {
+    if (isPokemonOnPage(pokemon.id)) {
+        return;
+    }
+
     const card = document.createElement('div');
     card.classList.add('card');
 
@@ -171,5 +182,10 @@ searchInput.addEventListener("keydown", async function (event) {
 });
 
 
+const buttonMais = document.querySelector('.btn-mais');
+buttonMais.addEventListener('click', () => {
+    offset += 1;
+    getAllPokemons(20, offset);
+})
 
 getAllPokemons();

@@ -19,7 +19,7 @@
 }
 
 .header-aboult strong {
-    color: rgb(132, 14, 201);
+    color: #ff960b;
 }
 
 .conteudo-principal {
@@ -98,6 +98,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2rem 4rem;
 }
   
 .details .name {
