@@ -1,5 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request, session
+import app.requests_poke as rp
 from app import app
+import requests
 
 @app.route('/')
 def home():
@@ -13,14 +15,15 @@ def favorites():
 def about():
     return render_template('about.html')
 
-
-# está é a rota proximo que deve ser implementada para careagar as informações linkada ao card clicado
 @app.route('/detail')
 def detail():
-    return render_template('detail.html')
-
-# add routes evolution pokémons
-
+    try:
+        pokemon_id = request.args.get('id')
+        
+        return render_template('detail.html', pokemon=rp.get_pokemon_details(pokemon_id))
+    except Exception as e:
+        print(e)
+        return redirect(url_for('home'))
 
 @app.route('/signin')
 def signin():
