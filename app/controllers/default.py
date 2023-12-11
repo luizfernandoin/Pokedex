@@ -13,9 +13,14 @@ def favorites():
 def about():
     return render_template('about.html')
 
+
+# está é a rota proximo que deve ser implementada para careagar as informações linkada ao card clicado
 @app.route('/detail')
 def detail():
     return render_template('detail.html')
+
+# add routes evolution pokémons
+
 
 @app.route('/signin')
 def signin():
@@ -33,5 +38,4 @@ def logout():
 
 
 
-# add routes evolution pokémons
 
