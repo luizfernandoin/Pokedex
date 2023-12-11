@@ -1,15 +1,50 @@
 const pokeapi = 'https://pokeapi.co/api/v2/pokemon';
 
-async function getAllPokemons(limit = 20, offset = 0) {
-    const response = await fetch(`${pokeapi}?limit=${limit}&offset=${offset}`);
-    const data = await response.json();
-    const { results } = data;
+const iconsTypes = {
+    water: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/water.svg',
+    normal: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/normal.svg',
+    fire: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/fire.svg',
+    grass: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/grass.svg',
+    flying: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/flying.svg',
+    fighting: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/fighting.svg',
+    poison: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/poison.svg',
+    electric: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/electric.svg',
+    ground: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/ground.svg',
+    rock: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/rock.svg',
+    psychic: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/psychic.svg',
+    ice: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/ice.svg',
+    bug: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/bug.svg',
+    ghost: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/ghost.svg',
+    steel: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/steel.svg',
+    dragon: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/dragon.svg',
+    dark: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/dark.svg',
+    fairy: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/fairy.svg'
+}
 
-    await Promise.all(results.map(async (pokemon) => {
-        const { name, abilities, types, species, height, weight, stats } = await getMoreInfo(pokemon.url);
-        
-        createPokemonCard({ name, abilities, types, species, height, weight, stats });
-    }));
+async function getAllPokemons(limit = 20, offset = 0) {
+    try {
+        const response = await fetch(`${pokeapi}?limit=${limit}&offset=${offset}`);
+        const data = await response.json();
+        const { results } = data;
+        await Promise.all(results.map(async (pokemon) => {
+            const { id, name, abilities, types, species, height, weight, stats } = await getMoreInfo(pokemon.url);
+            
+            createPokemonCard({ id, name, abilities, types, species, height, weight, stats });
+        }));    
+    } catch (error) {
+        console.error('Error fetching Pokémon data:', error);
+    }
+}
+
+async function getPokemonDetails(pokemonId) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+    const data = await response.json();
+
+    const { id, name, abilities, types, species, height, weight, stats } = data;
+
+    return {
+        id, name, abilities, types: getTypes(types), species, height, weight, stats
+    };
 }
 
 async function getMoreInfo(url) {
@@ -17,6 +52,7 @@ async function getMoreInfo(url) {
     const data = await response.json();
 
     const {
+        id,
         name,
         abilities,
         types,
@@ -27,7 +63,7 @@ async function getMoreInfo(url) {
     } = data;
 
     return {
-        name, abilities, types: getTypes(types), species, height, weight, stats
+        id, name, abilities, types: getTypes(types), species, height, weight, stats
     };
 }
 
@@ -54,39 +90,60 @@ function createPokemonCard(pokemon) {
         const typeSpan = document.createElement('span');
         typeSpan.id = `id${index + 1}`;
         typeSpan.classList.add('type-icon', type.toLowerCase());
-        typeSpan.innerHTML = `<i class="fas fa-${type.toLowerCase()}"></i>${type}`;
+        const iconUrl = iconsTypes[type.toLowerCase()]; 
+    
+        const imgElement = document.createElement('img');
+        imgElement.src = iconUrl;
+        imgElement.alt = type;
+        imgElement.style.width = '20px';
+        imgElement.style.height = '20px';
+    
+        typeSpan.appendChild(imgElement);
+        typeSpan.innerHTML += ` ${type}`;
+
         typeClassElement.appendChild(typeSpan);
     });
-
-    // Adicione elementos ao cabeçalho do card
     cardHeader.appendChild(nameElement);
     cardHeader.appendChild(typeClassElement);
 
-    // Crie o corpo do card
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
 
     const imgElement = document.createElement('img');
-    imgElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png`;
+    imgElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
 
     imgElement.alt = 'pokemon';
-
-    // Adicione a imagem ao corpo do card
     cardBody.appendChild(imgElement);
-
-    // Adicione o cabeçalho e o corpo ao card
     card.appendChild(cardHeader);
     card.appendChild(cardBody);
 
-    // Crie o link
     const linkElement = document.createElement('a');
     linkElement.href = '{{ url_for("detail") }}';
+    linkElement.dataset.pokemonId = pokemon.id;
     linkElement.appendChild(card);
 
-    // Adicione o card ao contêiner
-    const cardContainer = document.querySelector('.container-main');
+    const cardContainer = document.querySelector('.container-cards');
     cardContainer.appendChild(linkElement);
+
+    linkElement.addEventListener('click', handlePokemonClick);
 }
 
-// Carregue os primeiros Pokémon ao iniciar a página
+function handlePokemonClick(event) {
+    event.preventDefault();
+
+    const pokemonId = event.currentTarget.dataset.pokemonId;
+    getPokemonDetails(pokemonId)
+        .then(() => {
+            return fetch(`/detail?id=${pokemonId}`);
+        })
+        .then((response) => {
+            if (response.ok) {
+                window.location.href = `/detail?id=${pokemonId}`;
+            } else {
+                console.error(`Erro na requisição: ${response.status}`);
+            }
+        })
+        .catch(error => console.error('Erro ao obter detalhes do Pokémon:', error));
+}
+
 getAllPokemons();
