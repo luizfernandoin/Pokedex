@@ -3,6 +3,79 @@
 <title>Detail</title>
 {% endblock %}
 
+{% block style %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+{% endblock %}
+
+{% block conteudo %}
+<div class="container-detail">
+
+    <div class="main-detail">
+        <div class="card-header">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="pokemon">
+        </div>
+        <div class="card-body">
+            <div class="card-info">
+                <div class="poke-class">
+                    <span>tipo-class</span>
+                    <span>tipo-class</span>
+                </div>
+                <h1>Pokemon-name</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="secondary-detail">
+        <div class="info">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam rem obcaecati accusamus blanditiis sed architecto commodi alias dolor magni doloremque numquam minus possimus consectetur vel consequatur reiciendis, minima porro assumenda?</p>
+        </div>
+        <div class="data">
+            <div class="data-section">
+                <div>
+                    <h3>HP</h3>
+                    <p>2800</p>
+                </div>
+                <div>
+                    <h3>Speed</h3>
+                    <p>2800</p>
+                </div>
+            </div>
+            <div class="data-section">
+                <div>
+                    <h3>Attack</h3>
+                    <p>3000</p>
+                </div>
+                <div>
+                    <h3>Defense</h3>
+                    <p>3000</p>
+                </div>
+            </div>
+            <div class="data-section">
+                <div>
+                    <h3>Special Attack</h3>
+                    <p>4000</p>
+                </div>
+                <div>
+                    <h3>Special Defense</h3>
+                    <p>4000</p>
+                </div>
+            </div>
+        </div>
+        <div class="evolutions">
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="pokemon">
+            </a>
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="pokemon">
+            </a>
+            <a href="#">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="pokemon">
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block footer %}
 <footer>
     <div class="copyright">
