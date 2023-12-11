@@ -146,4 +146,30 @@ function handlePokemonClick(event) {
         .catch(error => console.error('Erro ao obter detalhes do Pokémon:', error));
 }
 
+const searchInput = document.querySelector('.search-input');
+
+searchInput.addEventListener("keydown", async function (event) {
+    if (event.key === "Enter"){
+
+        const searchTerm = searchInput.value.trim().toLowerCase();
+
+        if (searchTerm) {
+            const cardContainer = document.querySelector('.container-cards');
+            cardContainer.innerHTML = '';
+
+            try {
+                const { id, name, abilities, types, species, height, weight, stats } = await getMoreInfo(`https://pokeapi.co/api/v2/pokemon/${searchTerm}`);
+
+                createPokemonCard({ id, name, abilities, types, species, height, weight, stats });
+            } catch (error) {
+                console.error('Error fetching Pokémon data:', error);
+            }
+        }
+
+        searchInput.value = '';
+    };
+});
+
+
+
 getAllPokemons();
