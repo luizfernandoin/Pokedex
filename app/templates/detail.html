@@ -1,0 +1,78 @@
+{% extends "index.html" %}
+{% block tilte %}
+<title>Detail</title>
+{% endblock %}
+
+{% block style %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+{% endblock %}
+
+{% block conteudo %}
+<div class="container-detail">
+
+    <div class="main-detail">
+        <div class="card-header">
+            <img src="{{ pokemon.image_url }}" alt="pokemon">
+        </div>
+        <div class="card-body">
+            <div class="card-info">
+                <div class="poke-class">
+                    {% for type in pokemon.types %}
+                        <span>{{ type }}</span>
+                    {% endfor %}
+                </div>
+                <h1>{{ pokemon.name }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="secondary-detail">
+        <div class="info">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam rem obcaecati accusamus blanditiis sed architecto commodi alias dolor magni doloremque numquam minus possimus consectetur vel consequatur reiciendis, minima porro assumenda?</p>
+        </div>
+        <div class="data">
+            <div class="data-section">
+                <div>
+                    <h3>HP</h3>
+                    <p>{{ pokemon.stats[0].value }}</p>
+                </div>
+                <div>
+                    <h3>Speed</h3>
+                    <p>{{ pokemon.stats[5].value }}</p>
+                </div>
+            </div>
+            <div class="data-section">
+                <div>
+                    <h3>Attack</h3>
+                    <p>{{ pokemon.stats[1].value }}</p>
+                </div>
+                <div>
+                    <h3>Defense</h3>
+                    <p>{{ pokemon.stats[2].value }}</p>
+                </div>
+            </div>
+            <div class="data-section">
+                <div>
+                    <h3>Special Attack</h3>
+                    <p>{{ pokemon.stats[3].value }}</p>
+                </div>
+                <div>
+                    <h3>Special Defense</h3>
+                    <p>{{ pokemon.stats[4].value }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="evolutions">
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <div class="copyright">
+        <p>Copyright &copy; 2023 <span></span> - <span>PokéDex</span></p>
+    </div>
+</footer>
+{% endblock %}

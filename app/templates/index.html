@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block tilte %}
+    <title>Pokédex</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/pock_ball-red.svg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <link rel="shortcut icon" href="../static/src/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    {% block style %} {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="conteiner-logo-header">
+            <div class="mainHeader">
+                <div class="logoHeader">
+                    <a class="" href="{{ url_for('home') }}" tabindex="1">
+                        <img class="navbar-brand" alt="Git logo" src="../static/src/img/pokebola2.png">
+                    </a>
+                </div>
+                <div id="titleHeader">
+                    <h1>Pokédex</h1>
+                    <h1><span>Pokédex</span></h1>
+                </div>
+            </div>
+            <div class="menu-section">
+                <div class="menu-toggle">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three"></div>
+                </div>
+                <div class="navContainer">
+                    <nav class="navHeader">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ url_for('home') }}"><i class="bi bi-house-door"></i> Home</a>
+                            </li>
+                            
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('favorites') }}"><i class="fa-solid fa-exclamation"></i> Favorites</a>
+                            </li> -->
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('about') }}"><i class="fa-solid fa-exclamation"></i> Sobre</a>
+                            </li>
+
+                            <!-- {% if session['usuario_logado'] %}
+                            <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout') }}"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('signin') }}"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('signup') }}"><i class="bi bi-box-arrow-in-right"></i> Sign Up</a>
+                            </li>
+                            {% endif %} -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container-main">
+            {% block conteudo %}
+            
+            {% endblock %}
+        </section>
+    </main>
+
+    <footer>
+        <div class="container-elements">
+            <div class="info">
+                <img src="{{ url_for('static', filename='img/poke_pokemon_star.svg') }}" alt="img-logo">
+                <div class="text-info">
+                    <p>O projeto Pokédex utiliza uma API especializada para oferecer informações sobre os Pokémon. Essa plataforma digital oferece dados como tipos, 
+                        habilidades, habitats e curiosidades de cada criatura, permitindo uma experiência de exploração educativa e envolvente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pages">
+                <ul>
+                    {% block routes %}
+                    <!-- <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+                    <li><a href="{{ url_for('signup') }}">SignUp</a></li> -->
+                    <li><a href="#">Favorite</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    {% endblock %}
+                </ul>
+            </div>
+
+            <div class="complements">
+                <ul>
+                    <li><a href="https://github.com/Gerencia-de-configuracao-e-mudancas/projeto-final-cleanbug" target="_blank">Repository</a></li>
+                    <li><a href="https://flask.palletsprojects.com/en/3.0.x/" target="_blank">Framework</a></li>
+                    <li><a href="https://pokeapi.co/" target="_blank">API</a></li>
+                </ul>
+            </div>
+
+            <div class="authors">
+                <div id="author-jose" class="container-author">
+                    <img src="{{ url_for('static', filename='img/jose-autor.jpeg') }}" alt="autor1">
+                    <div>
+                        <h4>José Anderson F. de Arruda</h4>
+                        <p>Desenvolvedor Front-end</p>
+                    </div>
+                </div>
+                
+                <div id="author-luiz" class="container-author">
+                    <img src="{{ url_for('static', filename='img/luiz-autor.jpeg') }}" alt="autor2">
+                    <div>
+                        <h4>Luiz Fernando</h4>
+                        <p>Desenvolvedor Full Stack</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="copyright">
+            <p>Copyright &copy; 2023 <span></span> - <span>PokéDex</span></p>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/author.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/header.js') }}"></script>
+</body>
+</html>

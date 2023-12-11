@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block conteudo %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+{% endblock %}
+
+
+
+<div class="search-container">
+    <div>
+        <label class="search-icon" for="search-input"></label>
+    </div>
+    <input
+        type="text"
+        class="search-input"
+        id="search-input"
+        placeholder="Procurar pokemons"
+    />
+</div>
+
+<div class="container-cards">
+    
+</div>
+
+<button class="btn-mais">Mostrar mais</button>
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/pokeapi.js') }}"></script>
+{% endblock %}
+{% endblock %}
+
