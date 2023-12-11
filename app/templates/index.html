@@ -42,15 +42,15 @@
                                 <a class="nav-link" aria-current="page" href="{{ url_for('home') }}"><i class="bi bi-house-door"></i> Home</a>
                             </li>
                             
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('favorites') }}"><i class="fa-solid fa-exclamation"></i> Favorites</a>
-                            </li>
+                            </li> -->
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('about') }}"><i class="fa-solid fa-exclamation"></i> Sobre</a>
                             </li>
 
-                            {% if session['usuario_logado'] %}
+                            <!-- {% if session['usuario_logado'] %}
                             <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout') }}"><i class="bi bi-box-arrow-right"></i> Logout</a>
                             </li>
@@ -61,7 +61,7 @@
                             <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('signup') }}"><i class="bi bi-box-arrow-in-right"></i> Sign Up</a>
                             </li>
-                            {% endif %}
+                            {% endif %} -->
                         </ul>
                     </nav>
                 </div>
@@ -91,8 +91,8 @@
             <div class="pages">
                 <ul>
                     {% block routes %}
-                    <li><a href="{{ url_for('signin') }}">SignIn</a></li>
-                    <li><a href="{{ url_for('signup') }}">SignUp</a></li>
+                    <!-- <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+                    <li><a href="{{ url_for('signup') }}">SignUp</a></li> -->
                     <li><a href="#">Favorite</a></li>
                     <li><a href="{{ url_for('about') }}">About</a></li>
                     {% endblock %}

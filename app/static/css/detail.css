@@ -2,12 +2,15 @@
     display: grid;
     grid-template-columns: auto auto;
     color: #000000;
+    background-color: #7d7676;
+    border-radius: .8rem;
 }
 
 .main-detail {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 0;
 }
 
 .card-body {
@@ -20,11 +23,17 @@
 .poke-class {
     display: flex;
     flex-direction: row;
+    margin-bottom: .5rem;
 }
 
 .poke-class span {
-    margin-left: .5rem;
+    background-color: #00ff7b;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    margin-right: .4rem;
 }
+
+
 
 .card-body .card-body-section{
     margin-right: 10rem;

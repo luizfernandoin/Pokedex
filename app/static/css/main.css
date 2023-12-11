@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 0 13rem;
 }
 
 .container-cards a {
@@ -16,6 +17,7 @@
     border: .1rem solid #000;
     border-radius: 1rem;
     padding: 1rem;
+    background-color: #7d7676;
 }
 
 .card-header {
@@ -39,6 +41,7 @@
 
 #id1 {
     background-color: #00ff7b;
+    margin-right: .4rem;
 }
 
 #id2 {
