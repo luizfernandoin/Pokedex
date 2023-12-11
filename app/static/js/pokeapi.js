@@ -1,4 +1,5 @@
 const pokeapi = 'https://pokeapi.co/api/v2/pokemon';
+const offset = 0;
 
 const iconsTypes = {
     water: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/water.svg',
@@ -145,5 +146,10 @@ function handlePokemonClick(event) {
         })
         .catch(error => console.error('Erro ao obter detalhes do Pokémon:', error));
 }
+
+const buttonMais = document.querySelector('.btn-mais');
+buttonMais.addEventListener('click', () => {
+    
+})
 
 getAllPokemons();
