@@ -12,10 +12,17 @@ body {
 }
 
 main {
-  margin: 50px 250px 130px 250px;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 30px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container-main {
+  padding: 2rem 3rem;
+  min-height: 100vh;
+  width: 100%;
+  --bs-text-opacity: 1;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
 }
 
 section {
