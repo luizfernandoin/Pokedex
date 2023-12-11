@@ -12,15 +12,16 @@
 
     <div class="main-detail">
         <div class="card-header">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="pokemon">
+            <img src="{{ pokemon.image_url }}" alt="pokemon">
         </div>
         <div class="card-body">
             <div class="card-info">
                 <div class="poke-class">
-                    <span>tipo-class</span>
-                    <span>tipo-class</span>
+                    {% for type in pokemon.types %}
+                        <span>{{ type }}</span>
+                    {% endfor %}
                 </div>
-                <h1>Pokemon-name</h1>
+                <h1>{{ pokemon.name }}</h1>
             </div>
         </div>
     </div>
@@ -33,31 +34,31 @@
             <div class="data-section">
                 <div>
                     <h3>HP</h3>
-                    <p>2800</p>
+                    <p>{{ pokemon.stats[0].value }}</p>
                 </div>
                 <div>
                     <h3>Speed</h3>
-                    <p>2800</p>
+                    <p>{{ pokemon.stats[5].value }}</p>
                 </div>
             </div>
             <div class="data-section">
                 <div>
                     <h3>Attack</h3>
-                    <p>3000</p>
+                    <p>{{ pokemon.stats[1].value }}</p>
                 </div>
                 <div>
                     <h3>Defense</h3>
-                    <p>3000</p>
+                    <p>{{ pokemon.stats[2].value }}</p>
                 </div>
             </div>
             <div class="data-section">
                 <div>
                     <h3>Special Attack</h3>
-                    <p>4000</p>
+                    <p>{{ pokemon.stats[3].value }}</p>
                 </div>
                 <div>
                     <h3>Special Defense</h3>
-                    <p>4000</p>
+                    <p>{{ pokemon.stats[4].value }}</p>
                 </div>
             </div>
         </div>
