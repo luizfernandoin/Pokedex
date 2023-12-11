@@ -1,11 +1,4 @@
 {% extends "index.html" %}
-{% block tilte %}
-<title>Detail</title>
-{% endblock %}
-
-{% block style %} 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
-{% endblock %}
 
 {% block conteudo %}
 <a href="{{ url_for('detail') }}">
@@ -64,13 +57,4 @@
         </div>
     </div>
 </a>
-{% endblock %}
-
-
-{% block footer %}
-<footer>
-    <div class="copyright">
-        <p>Copyright &copy; 2023 <span></span> - <span>PokéDex</span></p>
-    </div>
-</footer>
 {% endblock %}
