@@ -2,26 +2,86 @@ const pokeapi = 'https://pokeapi.co/api/v2/pokemon';
 var offset = 0;
 var tot_cards = 0;
 
-const iconsTypes = {
-    water: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/water.svg',
-    normal: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/normal.svg',
-    fire: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/fire.svg',
-    grass: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/grass.svg',
-    flying: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/flying.svg',
-    fighting: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/fighting.svg',
-    poison: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/poison.svg',
-    electric: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/electric.svg',
-    ground: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/ground.svg',
-    rock: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/rock.svg',
-    psychic: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/psychic.svg',
-    ice: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/ice.svg',
-    bug: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/bug.svg',
-    ghost: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/ghost.svg',
-    steel: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/steel.svg',
-    dragon: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/dragon.svg',
-    dark: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/dark.svg',
-    fairy: 'https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/fairy.svg'
+const iconsTypes = (type) => {
+    return `https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/master/icons/${type}.svg`
 }
+
+// Objeto para armazenar as cores dos tipos de pokémon
+var coresPokemon = {
+    fire: {
+        backCard: "rgb(255, 167, 86)",
+        backType: "#FD7D24"
+    },
+    flying: {
+        backCard: "rgb(131, 162, 227)",
+        backType: "#748FC9"
+    },
+    water: {
+        backCard: "rgb(88, 171, 246)",
+        backType: "#4A90DA",
+    }, 
+    
+    bug: {
+        backCard: "rgb(139, 214, 116)",
+        backType: "#8CB230"
+    },
+    normal: {
+        backCard: "rgb(131, 162, 227)",
+        backType: "#9DA0AA"
+    },
+    poison: {
+        backCard: "rgb(159, 110, 151)",
+        backType: "#A552CC"
+    },
+    electric: {
+        backCard: "rgb(242, 203, 85)",
+        backType: "#EED535"
+    },
+    ground: {
+        backCard: "rgb(247, 133, 81)",
+        backType: "#DD7748"
+    },
+    grass: {
+        backCard: "rgb(139, 190, 138)",
+        backType: "#62B957",
+    },
+    fairy: {
+        backCard: "rgb(235, 168, 195)",
+        backType: "#ED6EC7"
+    },
+    fighting: {
+        backCard: "rgb(235, 73, 113)",
+        backType: "#D04164"
+    },
+    psychic: {
+        backCard: "rgb(255, 101, 104)",
+        backType: "#EA5D60",
+    },
+    rock: {
+        backCard: "rgb(212, 194, 148)",
+        backType: "#BAAB82",
+    },
+    ghost: {
+        backCard: "rgb(133, 113, 190)",
+        backType: "#556AAE",
+    },
+    dark: {
+        backCard: "rgb(111, 110, 120)",
+        backType: "#58575F",
+    },
+    dragon: {
+        backCard: "rgb(115, 131, 185)",
+        backType: "#0F6AC0"
+    },
+    ice: {
+        backCard: "rgb(145, 216, 223)",
+        backType: "#61CEC0",
+    },
+    steel: {
+        backCard: "rgb(76, 145, 178)",
+        backType: "#417D9A",
+    },
+};
 
 async function getAllPokemons(limit = 20, offset = 0) {
     try {
@@ -88,6 +148,10 @@ function createPokemonCard(pokemon) {
     const card = document.createElement('div');
     card.classList.add('card');
 
+    card.style.backgroundColor = coresPokemon[pokemon.types[0].toLowerCase()].backCard
+
+    //card.classList.add(pokemon.types[0].toLowerCase());
+
     const cardHeader = document.createElement('div');
     cardHeader.classList.add('card-header');
 
@@ -99,9 +163,10 @@ function createPokemonCard(pokemon) {
 
     pokemon.types.forEach((type, index) => {
         const typeSpan = document.createElement('span');
+        typeSpan.style.backgroundColor = coresPokemon[type.toLowerCase()].backType
         typeSpan.id = `id${index + 1}`;
         typeSpan.classList.add('type-icon', type.toLowerCase());
-        const iconUrl = iconsTypes[type.toLowerCase()]; 
+        const iconUrl = iconsTypes(type.toLowerCase()); 
     
         const imgElement = document.createElement('img');
         imgElement.src = iconUrl;
