@@ -67,12 +67,7 @@
         </div>
     </div>
 </div>
+{% block scripts %}
+<script type="module" src="{{ url_for('static', filename='js/details.js') }}"></script>
 {% endblock %}
-
-{% block footer %}
-<footer>
-    <div class="copyright">
-        <p>Copyright &copy; 2023 <span></span> - <span>PokéDex</span></p>
-    </div>
-</footer>
 {% endblock %}
