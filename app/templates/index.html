@@ -87,24 +87,26 @@
                     </p>
                 </div>
             </div>
-
-            <div class="pages">
-                <ul>
-                    {% block routes %}
-                    <!-- <li><a href="{{ url_for('signin') }}">SignIn</a></li>
-                    <li><a href="{{ url_for('signup') }}">SignUp</a></li> -->
-                    <li><a href="#">Favorite</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
-                    {% endblock %}
-                </ul>
-            </div>
-
-            <div class="complements">
-                <ul>
-                    <li><a href="https://github.com/Gerencia-de-configuracao-e-mudancas/projeto-final-cleanbug" target="_blank">Repository</a></li>
-                    <li><a href="https://flask.palletsprojects.com/en/3.0.x/" target="_blank">Framework</a></li>
-                    <li><a href="https://pokeapi.co/" target="_blank">API</a></li>
-                </ul>
+            
+            <div class="links">
+                <div class="pages">
+                    <ul>
+                        {% block routes %}
+                        <!-- <li><a href="{{ url_for('signin') }}">SignIn</a></li>
+                        <li><a href="{{ url_for('signup') }}">SignUp</a></li> -->
+                        <li><a href="#">Favorite</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        {% endblock %}
+                    </ul>
+                </div>
+    
+                <div class="complements">
+                    <ul>
+                        <li><a href="https://github.com/Gerencia-de-configuracao-e-mudancas/projeto-final-cleanbug" target="_blank">Repository</a></li>
+                        <li><a href="https://flask.palletsprojects.com/en/3.0.x/" target="_blank">Framework</a></li>
+                        <li><a href="https://pokeapi.co/" target="_blank">API</a></li>
+                    </ul>
+                </div>
             </div>
 
             <div class="authors">

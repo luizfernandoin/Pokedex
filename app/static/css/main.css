@@ -6,6 +6,7 @@
 }
 
 .container-cards a {
+    width: 49%;
     text-decoration: none;
     color: #000;
 }
@@ -13,6 +14,7 @@
 .card {
     display: flex;
     flex-direction: row;
+    max-width: 100%;
     align-items: center;
     border: .1rem solid #000;
     border-radius: 1rem;
@@ -21,7 +23,10 @@
 }
 
 .card-header {
-    min-width: 32vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 50%;
     padding-left: .8rem;
     margin: 0;
     margin-right: 2rem;
@@ -34,6 +39,7 @@
 .type-class {
     margin-top: .8rem;
 }
+
 .type-class span {
     border-radius: .5rem;
     padding: .5rem 1rem;
@@ -51,10 +57,10 @@
 .card-body {
     margin: 0 2rem;
 }
+
 .card-body img {
     width: 15rem;
 }
-
 
 .btn-mais {
     display: flex;
@@ -75,4 +81,89 @@
   
 .btn-mais:hover {
     cursor: pointer;
+}
+
+
+@media (max-width: 1322px){
+    .container-cards a {
+        width: 100%;
+    }
+}
+
+@media (max-width: 920px){
+
+}
+  
+@media (max-width: 850px){
+    
+}
+  
+@media (max-width: 730px){
+    .card-header {
+        min-width: 20%;
+    }
+    .type-class {
+        display: flex;
+        flex-direction: column;
+        row-gap: .5rem;
+    }
+}
+  
+@media (max-width: 666px){
+
+}
+  
+@media (max-width: 575px){
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .type-class {
+        display: flex;
+        flex-direction: row;
+        row-gap: .5rem;
+    }
+
+    .btn-mais {
+        height: 10vh;
+    }
+}
+  
+@media (max-width: 475px){
+    .btn-mais {
+        width: 75%;
+    }
+}
+
+@media (max-width: 350px){
+    .card-body img {
+        width: 10rem;
+    }
+}
+
+@media (max-width: 270px){
+    .card {
+        padding: 0rem;
+    }
+
+    .card-body {
+        margin: 0 0rem;
+        padding: 0rem;
+    }
+    .card-body img {
+        width: 10rem;
+    }
+
+    .type-class {
+        flex-direction: column;
+    }
+
+    .btn-mais {
+        width: 100%;
+    }
+}
+   
+@media (max-width: 422px){
+
 }

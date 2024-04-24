@@ -231,3 +231,23 @@ h1 span {
         font-size: 0.9rem;
     }
 }
+
+@media (max-width: 300px){
+    .logoHeader {
+        margin-right: 0px;
+    }
+
+    .navbar-brand {
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
+
+    .mainHeader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-left: 1rem;
+        flex-direction: column;
+    }
+}
